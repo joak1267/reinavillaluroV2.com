@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Reina de Villa Luro - Fábrica de Pastas Frescas en Vélez Sarsfield</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="Imagenes/reinafinal.png">
+    <style>
+        /* Variables y Reset - COLORES AZULES Y BLANCOS */
+        :root {
+            --azul-oscuro: #1e3a8a;
+            --azul-medio: #2563eb;
+            --azul-claro: #3b82f6;
+            --azul-suave: #dbeafe;
+            --blanco: #ffffff;
+            --gris-claro: #f8fafc;
+            --gris-medio: #e2e8f0;
+            --gris-oscuro: #334155;
+            --sombra: 0 4px 12px rgba(30, 58, 138, 0.1);
+            --transicion: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--gris-oscuro);
+            line-height: 1.6;
+            background-color: var(--blanco);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .seccion {
+            padding: 80px 0;
+        }
+        
+        .titulo-seccion {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .titulo-seccion h2 {
+            font-size: 2.5rem;
+            color: var(--azul-oscuro);
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .titulo-seccion h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--azul-medio);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .subtitulo {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--gris-oscuro);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .btn-primario {
+            background-color: var(--azul-medio);
+            color: var(--blanco);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transicion);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        
+        .btn-primario:hover {
+            background-color: var(--azul-oscuro);
+            transform: translateY(-3px);
+            box-shadow: var(--sombra);
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--blanco);
+            box-shadow: var(--sombra);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-contenedor {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-imagen {
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-imagen img {
+            height: 100%;
+            width: auto;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+        
+        .logo-texto {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .logo-texto h1 {
+            font-size: 1.8rem;
+            color: var(--azul-oscuro);
+            line-height: 1.2;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .logo-texto p {
+            font-size: 0.9rem;
+            color: var(--azul-medio);
+            font-weight: 500;
+        }
+        
+        /* Navegación */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--gris-oscuro);
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: var(--transicion);
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--azul-medio);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--azul-medio);
+            left: 0;
+            bottom: -5px;
+            transition: var(--transicion);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .btn-contacto-nav {
+            background-color: var(--azul-medio);
+            color: var(--blanco);
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transicion);
+        }
+        
+        .btn-contacto-nav:hover {
+            background-color: var(--azul-oscuro);
+        }
+        
+        .btn-menu-mobile {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--azul-medio);
+            cursor: pointer;
+        }
+        
+        /* Hero */
+        .hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.95)), 
+                        url('https://images.unsplash.com/photo-1551183053-bf91a1d81141?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-image: opacity;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .hero-contenido {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 3.5rem;
+            color: var(--azul-oscuro);
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        
+        .hero h2 span {
+            color: var(--azul-medio);
+            display: block;
+            font-size: 2.8rem;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--gris-oscuro);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-botones {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-secundario {
+            background-color: var(--blanco);
+            color: var(--azul-medio);
+            border: 2px solid var(--azul-medio);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transicion);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        
+        .btn-secundario:hover {
+            background-color: var(--azul-suave);
+            transform: translateY(-3px);
+        }
+        
+        /* Sobre Nosotros */
+        .sobre-nosotros {
+            background-color: var(--gris-claro);
+        }
+        
+        .sobre-contenido {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .sobre-texto h3 {
+            font-size: 2rem;
+            color: var(--azul-oscuro);
+            margin-bottom: 20px;
+        }
+        
+        .sobre-texto p {
+            margin-bottom: 20px;
+            color: var(--gris-oscuro);
+        }
+        
+        .sobre-imagen img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--sombra);
+        }
+        
+        .destacado {
+            background-color: var(--azul-suave);
+            padding: 25px;
+            border-left: 4px solid var(--azul-medio);
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        
+        .destacado p {
+            color: var(--azul-oscuro);
+            margin-bottom: 0;
+        }
+        
+        /* Productos */
+        .productos {
+            background-color: var(--blanco);
+        }
+        
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .producto-card {
+            background: var(--blanco);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            transition: var(--transicion);
+            border: 1px solid var(--gris-medio);
+        }
+        
+        .producto-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.15);
+            border-color: var(--azul-claro);
+        }
+        
+        .producto-imagen {
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .producto-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transicion);
+        }
+        
+        .producto-card:hover .producto-imagen img {
+            transform: scale(1.05);
+        }
+        
+        .producto-info {
+            padding: 25px;
+        }
+        
+        .producto-info h3 {
+            color: var(--azul-medio);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .producto-info p {
+            color: var(--gris-oscuro);
+            margin-bottom: 15px;
+        }
+        
+        /* Valores */
+        .valores {
+            background-color: var(--gris-claro);
+        }
+        
+        .valores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .valor-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--blanco);
+            border-radius: 10px;
+            box-shadow: var(--sombra);
+            transition: var(--transicion);
+            border: 1px solid var(--gris-medio);
+        }
+        
+        .valor-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--azul-claro);
+        }
+        
+        .valor-icono {
+            font-size: 2.5rem;
+            color: var(--azul-medio);
+            margin-bottom: 20px;
+        }
+        
+        .valor-item h4 {
+            color: var(--azul-oscuro);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .valor-item p {
+            color: var(--gris-oscuro);
+        }
+        
+        /* Contacto */
+        .contacto {
+            background-color: var(--blanco);
+        }
+        
+        .contacto-contenido {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .info-contacto {
+            background-color: var(--azul-suave);
+            padding: 40px;
+            border-radius: 10px;
+            border: 1px solid var(--gris-medio);
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .info-icono {
+            font-size: 1.5rem;
+            color: var(--azul-medio);
+            min-width: 30px;
+        }
+        
+        .info-texto h4 {
+            color: var(--azul-oscuro);
+            margin-bottom: 5px;
+        }
+        
+        .info-texto p {
+            color: var(--gris-oscuro);
+        }
+        
+        .mapa iframe {
+            width: 100%;
+            height: 300px;
+            border-radius: 10px;
+            border: none;
+            box-shadow: var(--sombra);
+        }
+        
+        .redes-sociales {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .red-social {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: var(--azul-medio);
+            color: var(--blanco);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: var(--transicion);
+            text-decoration: none;
+        }
+        
+        .red-social:hover {
+            background-color: var(--azul-oscuro);
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--azul-oscuro);
+            color: var(--blanco);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-contenido {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-columna h3 {
+            color: var(--azul-suave);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+        
+        .footer-columna p, .footer-columna a {
+            color: #e2e8f0;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: var(--transicion);
+        }
+        
+        .footer-columna a:hover {
+            color: var(--blanco);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        .aviso-legal {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin-top: 20px;
+            line-height: 1.4;
+        }
+        
+        .logo-footer {
+            margin-top: 15px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-contenido h2 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-contenido h2 span {
+                font-size: 2.2rem;
+            }
+            
+            .sobre-contenido, .contacto-contenido {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                flex-direction: column;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--blanco);
+                padding: 20px;
+                box-shadow: var(--sombra);
+                z-index: 100;
+            }
+            
+            nav ul.mostrar {
+                display: flex;
+            }
+            
+            .btn-menu-mobile {
+                display: block;
+            }
+            
+            .header-contenedor {
+                padding: 10px 0;
+            }
+            
+            .hero {
+                padding: 130px 0 70px;
+            }
+            
+            .titulo-seccion h2 {
+                font-size: 2rem;
+            }
+            
+            .seccion {
+                padding: 60px 0;
+            }
+            
+            .logo-imagen {
+                height: 60px;
+            }
+            
+            .logo-texto h1 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-contenido h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-contenido h2 span {
+                font-size: 1.8rem;
+            }
+            
+            .hero-botones {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-primario, .btn-secundario {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .logo {
+                gap: 10px;
+            }
+            
+            .logo-imagen {
+                height: 50px;
+            }
+            
+            .logo-texto h1 {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .logo-texto h1 {
+                font-size: 1.1rem;
+            }
+            
+            .logo-imagen {
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-contenedor">
+            <div class="logo">
+                <div class="logo-imagen">
+                    <!-- Logo con colores azules -->
+                    <img src="Imagenes/LaReinaVillaLuro.png"alt="La cabeza y el torso de un esqueleto de dinosaurio;tiene una cabeza grande con dientes largos y afilados" />
+                        <!-- Corona azul -->
+                        <path d="M100,30 L120,60 L150,65 L130,90 L135,120 L100,105 L65,120 L70,90 L50,65 L80,60 Z" fill="#3b82f6" stroke="#1e3a8a" stroke-width="3"/>
+                        <!-- Círculo exterior azul -->
+                        <circle cx="100" cy="100" r="85" fill="none" stroke="#1e3a8a" stroke-width="8"/>
+                    </svg>
+                </div>
+                <div class="logo-texto">
+                    <h1>La Reina de Villa Luro</h1>
+                    <p>Fábrica de pastas frescas</p>
+                </div>
+            </div>
+            
+            <button class="btn-menu-mobile" id="btnMenuMobile">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="menuPrincipal">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#valores">Nuestros Valores</a></li>
+                    <li><a href="#contacto" class="btn-contacto-nav">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero / Inicio -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-contenido">
+                <h2>Ravioles en <span>Vélez Sarsfield</span></h2>
+                <p>Fabricación artesanal de pastas frescas desde 1962. Calidad y tradición en cada producto que elaboramos con dedicación y pasión.</p>
+                
+                <div class="hero-botones">
+                    <a href="#productos" class="btn-primario">
+                        <i class="fas fa-utensils"></i> Ver Productos
+                    </a>
+                    <a href="#contacto" class="btn-secundario">
+                        <i class="fas fa-map-marker-alt"></i> Cómo Llegar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section class="seccion sobre-nosotros" id="nosotros">
+        <div class="container">
+            <div class="titulo-seccion">
+                <h2>Sobre Nosotros</h2>
+            </div>
+            
+            <div class="sobre-contenido">
+                <div class="sobre-imagen">
+                    <img src="Imagenes/Reinavillaluro.jpg" alt="Fabricación de pastas artesanal">
+                </div>
+                
+                <div class="sobre-texto">
+                   
+                   <h3>Más de Seis Décadas de Tradición en Pasta Fresca</h3>
+                    
+                    <br><p>En <strong>La Reina de Villa Luro</strong>, el sabor se hereda. Somos un negocio familiar con una rica historia que se remonta a <strong>más de 62 años</strong>, y que se ha convertido en un emblema indiscutible del barrio.</p>
+                    <p>Nuestra experiencia nos ha permitido perfeccionar cada receta, garantizando la más alta calidad en cada uno de nuestros productos.</p>
+                    <p>Trabajamos con esmero y dedicación para ofrecer productos que respetan las recetas tradicionales, utilizando siempre ingredientes frescos y de primera calidad.</p>
+                    
+                    <div class="destacado">
+                        <p><strong>Atendemos a público en general y comercios</strong>, ofreciendo productos que cumplen con los más altos estándares de calidad y sabor.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos -->
+    <section class="seccion productos" id="productos">
+        <div class="container">
+            <div class="titulo-seccion">
+                <h2>Nuestros Productos</h2>
+            </div>
+            
+            <p class="subtitulo">Elaboramos una variedad de pastas frescas con la calidad y el sabor que nos caracterizan.</p>
+            
+            <div class="productos-grid">
+                <div class="producto-card">
+                    <div class="producto-imagen">
+                        <img src="Imagenes/ravioles.jpg" alt="Ravioles">
+                    </div>
+                    <div class="producto-info">
+                        <h3>Ravioles</h3>
+                        <p>Nuestro producto estrella. Disponibles con diferentes rellenos: ricota y espinaca, carne, pollo, y cuatro quesos.</p>
+                    </div>
+                </div>
+                
+                <div class="producto-card">
+                    <div class="producto-imagen">
+                        <img src="Imagenes/sorrentinos.jpg" alt="Sorrentinos">
+                    </div>
+                    <div class="producto-info">
+                        <h3>Sorrentinos</h3>
+                        <p>Grandes, jugosos y rellenos de los mejores ingredientes. Una especialidad de nuestra casa.</p>
+                    </div>
+                </div>
+                
+                <div class="producto-card">
+                    <div class="producto-imagen">
+                        <img src="Imagenes/Tallerines.jpg" alt="Tallarines">
+                    </div>
+                    <div class="producto-info">
+                        <h3>Tallarines</h3>
+                        <p>Pasta fresca al huevo, cortada al momento para garantizar su frescura y textura perfecta.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Valores -->
+    <section class="seccion valores" id="valores">
+        <div class="container">
+            <div class="titulo-seccion">
+                <h2>Nuestros Valores</h2>
+            </div>
+            
+            <p class="subtitulo">Lo que nos diferencia y nos impulsa a seguir creciendo cada día.</p>
+            
+            <div class="valores-grid">
+                <div class="valor-item">
+                    <div class="valor-icono">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h4>Calidad Real</h4>
+                    <p>Como "La Reina" de las pastas, garantizamos la más alta calidad en cada producto que elaboramos.</p>
+                </div>
+                
+                <div class="valor-item">
+                    <div class="valor-icono">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h4>Tradición</h4>
+                    <p>Mantenemos recetas tradicionales transmitidas por generaciones, respetando el arte de la pasta fresca.</p>
+                </div>
+                
+                <div class="valor-item">
+                    <div class="valor-icono">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h4>Pasión</h4>
+                    <p>Amamos lo que hacemos y eso se refleja en cada pasta que elaboramos con dedicación y esmero.</p>
+                </div>
+                
+                <div class="valor-item">
+                    <div class="valor-icono">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h4>Compromiso</h4>
+                    <p>Nos comprometemos con cada cliente para ofrecer un producto que supere sus expectativas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="seccion contacto" id="contacto">
+        <div class="container">
+            <div class="titulo-seccion">
+                <h2>Contacto y Ubicación</h2>
+            </div>
+            
+            <div class="contacto-contenido">
+                <div class="info-contacto">
+                    <div class="info-item">
+                        <div class="info-icono">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-texto">
+                            <h4>Dónde estamos</h4>
+                            <p><strong>Dirección:</strong> Av. Lope de Vega 1314, Vélez Sarsfield<br>
+                            Ciudad de Buenos Aires, Código Postal 1407</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icono">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-texto">
+                            <h4>Horarios de atención</h4>
+                            <p><strong>Lunes a Viernes:</strong> 9:00 - 13:00 y 16:00 - 20:00<br>
+                            <strong>Sábados:</strong> 9:00 - 13:00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icono">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-texto">
+                            <h4>Contacto directo</h4>
+                            <p>Para consultas y pedidos, contactanos directamente por teléfono o WhatsApp.</p>
+                            <p><strong>Teléfono:</strong> (011) 4567-8901</p>
+                        </div>
+                    </div>
+                    
+                    <div class="redes-sociales">
+                        <a href="https://wa.me/5491145678901" class="red-social" target="_blank" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://facebook.com/lareinadevillaluro" class="red-social" target="_blank" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com/lareinadevillaluro" class="red-social" target="_blank" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="mapa-ubicacion">
+                    <div class="mapa">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.636064166556!2d-58.50012328476997!3d-34.63482288045309!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc9a5b7b5b5b5%3A0x5b5b5b5b5b5b5b5b!2sAv.%20Lope%20de%20Vega%201314%2C%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1620000000000!5m2!1ses!2sar" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    
+                    <div class="info-item" style="margin-top: 30px;">
+                        <div class="info-icono">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="info-texto">
+                            <h4>Importante</h4>
+                            <p>Somos una fábrica de pastas frescas. No contamos con servicio de delivery, pero puedes retirar tu pedido directamente en nuestro local.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-contenido">
+                <div class="footer-columna">
+                    <h3>La Reina de Villa Luro</h3>
+                    <p>Fábrica de pastas frescas artesanales en Vélez Sarsfield. Tradición y calidad desde 1996.</p>
+                    <div class="logo-footer">
+                        <!-- Logo simplificado para footer -->
+                        <svg width="60" height="60" viewBox="0 0 200 200">
+                            <path d="M100,40 L115,60 L140,65 L125,85 L128,110 L100,100 L72,110 L75,85 L60,65 L85,60 Z" fill="#3b82f6"/>
+                            <circle cx="100" cy="100" r="50" fill="none" stroke="#3b82f6" stroke-width="4"/>
+                            <text x="100" y="100" text-anchor="middle" dy=".3em" font-family="Arial" font-size="18" font-weight="bold" fill="#3b82f6">RVL</text>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="footer-columna">
+                    <h3>Información Legal</h3>
+                    <p><strong>Razón Social:</strong> La Reina de Villa Luro - Fábrica de Pastas Frescas</p>
+                    <p><strong>CUIT:</strong> 30-58269653-1</p>
+                    <p><strong>Domicilio:</strong> Av. Lope de Vega 1314, Vélez Sarsfield, CABA</p>
+                </div>
+                
+                <div class="footer-columna">
+                    <h3>Enlaces Rápidos</h3>
+                    <a href="#inicio">Inicio</a>
+                    <a href="#nosotros">Sobre Nosotros</a>
+                    <a href="#productos">Productos</a>
+                    <a href="#contacto">Contacto</a>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 La Reina de Villa Luro - Fábrica de Pastas Frescas. Todos los derechos reservados.</p>
+                <div class="aviso-legal">
+                    <p>El acceso a este sitio web es gratuito. Todo el contenido es propiedad intelectual de La Reina de Villa Luro - Fábrica de Pastas Frescas. Cualquier utilización de los mismos contraria a las normas en materia de propiedad intelectual será perseguida con arreglo a la legislación vigente.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menú móvil
+        document.getElementById('btnMenuMobile').addEventListener('click', function() {
+            const menu = document.getElementById('menuPrincipal');
+            menu.classList.toggle('mostrar');
+        });
+        
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('nav a').forEach(enlace => {
+            enlace.addEventListener('click', function(event) {
+                if (window.innerWidth <= 768) {
+                    document.getElementById('menuPrincipal').classList.remove('mostrar');
+                }
+                
+                // Smooth scroll para enlaces internos
+                if (this.getAttribute('href').startsWith('#')) {
+                    event.preventDefault();
+                    const destino = document.querySelector(this.getAttribute('href'));
+                    window.scrollTo({
+                        top: destino.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animación al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Aplicar animación a elementos
+        const elementosAnimados = document.querySelectorAll('.producto-card, .valor-item, .sobre-contenido > div');
+        elementosAnimados.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+        
+        // Para pantallas pequeñas, ajustar el logo si es necesario
+        window.addEventListener('resize', function() {
+            if (window.innerWidth <= 400) {
+                document.querySelector('.logo-texto h1').style.fontSize = '1.1rem';
+            } else if (window.innerWidth <= 576) {
+                document.querySelector('.logo-texto h1').style.fontSize = '1.3rem';
+            } else {
+                document.querySelector('.logo-texto h1').style.fontSize = '';
+            }
+        });
+    </script>
+</body>
+</html>
